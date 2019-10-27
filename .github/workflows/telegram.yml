@@ -10,11 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Telegram Message Notify
-        uses: appleboy/telegram-action@0.0.5
-        with:
-          message: |
-            Commit ${{ github.sha }} pushed by ${{ github.actor }} on ${{ github.ref }}
-        env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
+      - name: Telegram Notify Message
+        run: curl https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&text=Testing%20if%20this%20worksCommit ${{ github.sha }} pushed by ${{ github.actor }} on ${{ github.ref }}
