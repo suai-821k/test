@@ -8,6 +8,6 @@ jobs:
     steps:
       - name: Telegram send message
         env:
-          MESSAGE: ${{ github.head_commit.name }}
+          MESSAGE: ${{ toJson(github.head_commit) }}
           ACTOR: ${{ github.actor }}
-        run: curl 'https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&text=Commit $MESSAGE%0APushed by $ACTOR'
+        run: echo$MESSAGE;curl 'https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&text=Commit $MESSAGE%0APushed by $ACTOR'
