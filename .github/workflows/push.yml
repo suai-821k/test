@@ -9,4 +9,4 @@ jobs:
       - name: Telegram send message
         env:
           GITHUB: ${{ toJson(github) }}
-        run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&parse_mode=HTML&text="Commit <a href="${{ github.head_commit.url }}">${{ github.head_commit.message }}</a><br>Pushed by ${{ github.actor }}"
+        run: curl 'https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&parse_mode=HTML&text=Commit <a href="${{ github.head_commit.url }}">${{ github.head_commit.message }}</a><br>Pushed by ${{ github.actor }}'
