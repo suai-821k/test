@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Telegram send message
-        run: curl 'https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&parse_mode=HTML&text=Commit ${{ github.head_commit.message }}%0APushed by ${{ github.actor }}'
+        run: curl 'https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&parse_mode=HTML&text=Commit ${{ toJson(github.head_commit) }}%0APushed by ${{ github.actor }}'
