@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Telegram send message
-        run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&text=Commit ${{ github.sha }} pushed by ${{ github.actor }} on ${{ github.ref }}"
+        env:
+          GITHUB: ${{ toJson(github) }}
+        run: echo $GITHUB; curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&text=Commit ${{ github.sha }} pushed by ${{ github.actor }} on ${{ github.ref }}"
