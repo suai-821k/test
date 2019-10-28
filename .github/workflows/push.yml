@@ -6,9 +6,8 @@ jobs:
     name: Telegram Notify Message
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
       - name: Telegram send message
         env:
           MESSAGE: ${{ github.head_commit.name }}
           ACTOR: ${{ github.actor }}
-        run: curl 'https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&parse_mode=HTML&text=Commit $MESSAGE%0APushed by $ACTOR'
+        run: curl 'https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&text=Commit $MESSAGE%0APushed by $ACTOR'
