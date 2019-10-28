@@ -7,12 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Telegram send message
-        uses: appleboy/telegram-action@0.0.3
+        uses: Lukasss93/telegram-action@v1
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
+          TELEGRAM_CHAT: ${{ secrets.TELEGRAM_TO }}
         with:
-          format: html
-          message: |
-            Commit <a href="google.com">${{ github.head_commit.name }}</a>
-            Pushed by ${{ github.actor }}
+          message: Commit ${{ github }} pushed by ${{ github.actor }}
