@@ -8,9 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Telegram send message
-        uses: Lukasss93/telegram-action@v1
-        env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT: ${{ secrets.TELEGRAM_TO }}
-        with:
-          message: 'Override the default message (footer included)'
+        run: curl 'https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&parse_mode=HTML&text=Commit ${{ github.head_commit.message }}%0APushed by ${{ github.actor }}'
