@@ -1,13 +1,10 @@
-name: Telegram Notification
-on:
-  push:
-    branches: 
-      - master
+name: Push actions
+on: push
 jobs:
 
   build:
-    name: Telegram send message
+    name: Telegram Notify Message
     runs-on: ubuntu-latest
     steps:
-      - name: Telegram Notify Message
+      - name: Telegram send message
         run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&text=Commit ${{ github.sha }} pushed by ${{ github.actor }} on ${{ github.ref }}"
