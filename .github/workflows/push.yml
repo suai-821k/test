@@ -15,4 +15,4 @@ jobs:
           format: html
           message: |
             Commit <a href="google.com">${{ github.head_commit.name }}</a>
-            Pushed by ${{ repo.namespace }}
+            Pushed by ${{ github.actor }}
