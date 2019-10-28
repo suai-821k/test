@@ -12,6 +12,7 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
         with:
+          format: html
           message: |
-            Commit ${{ github.head_commit.name }}
-            Pushed by ${{ github.actor }}
+            Commit <a href="google.com">${{ github.head_commit.name }}</a>
+            Pushed by ${{ repo.namespace }}
