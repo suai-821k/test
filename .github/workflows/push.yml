@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Telegram send message
-        env:
-          MESSAGE: ${{ toJson(github.head_commit) }}
-          ACTOR: ${{ github.actor }}
-        run: echo $MESSAGE;curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_TO }}&text=Commit "$MESSAGE"%0APushed by "$ACTOR
+      - name: send custom message with args
+        uses: appleboy/telegram-action@master
+        env:  
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
