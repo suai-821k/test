@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Telegram send message
-      - name: send custom message with args
         uses: appleboy/telegram-action@master
         env:  
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
