@@ -6,7 +6,6 @@ jobs:
     name: Telegram Notify Message
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ toJson(github) }}
       - name: Telegram send message
         uses: appleboy/telegram-action@master
         env:
@@ -14,6 +13,6 @@ jobs:
           TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
         with:
           message: |
-            Commit ${{ toJson(github)['head_commit'] }}
+            Commit ${{ github.event.head_commit.message }}
             Pushed by ${{ github.actor }}
 
