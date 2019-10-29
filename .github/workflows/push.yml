@@ -6,7 +6,7 @@ jobs:
     name: Telegram Notify Message
     runs-on: ubuntu-latest
     steps:
-      - name: Telegram send messageuses:
+      - name: Telegram send message
         uses: appleboy/telegram-action@master
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
