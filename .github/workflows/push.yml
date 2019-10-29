@@ -13,6 +13,6 @@ jobs:
           TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
         with:
           message: |
-            Commit ${{ github.['head_commit'] }}
+            Commit ${{ github['head_commit'] }}
             Pushed by ${{ github.actor }}
 
