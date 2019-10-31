@@ -51,7 +51,7 @@ jobs:
         with:
           format: html
           message: |
-            Repo: <a href="${{ github.repository }}">${{ github.repository }}</a>
+            Repo: <a href="${{ github.repository.url }}">${{ github.repository }}</a>
             Commit: <a href="${{ github.event.head_commit.url }}">${{ github.event.head_commit.message }}</a>
             Status: success
             Pushed by ${{ github.actor }}
@@ -64,7 +64,7 @@ jobs:
         with:
           format: html
           message: |
-            Repo: <a href="${{ github.repository }}">${{ github.repository }}</a>
+            Repo: <a href="${{ github.repository.url }}">${{ github.repository }}</a>
             Commit: <a href="${{ github.event.head_commit.url }}">${{ github.event.head_commit.message }}</a>
             Status: failed
             Pushed by ${{ github.actor }}
