@@ -66,6 +66,19 @@ jobs:
           message: |
             Repo: <a href="${{ github.repository.url }}">${{ github.repository }}</a>
             Commit: <a href="${{ github.event.head_commit.url }}">${{ github.event.head_commit.message }}</a>
+            Status: cancelled
+            Pushed by ${{ github.actor }}
+      - name: Send fail message
+        if: failure()
+        uses: appleboy/telegram-action@master
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
+        with:
+          format: html
+          message: |
+            Repo: <a href="${{ github.repository.url }}">${{ github.repository }}</a>
+            Commit: <a href="${{ github.event.head_commit.url }}">${{ github.event.head_commit.message }}</a>
             Status: failed
             Pushed by ${{ github.actor }}
 
