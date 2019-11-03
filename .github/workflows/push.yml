@@ -63,6 +63,7 @@ jobs:
 
     name: Telegram Notify Message
     runs-on: ubuntu-latest
+    if: always()
     needs: [tests-ubuntu, tests-windows]
 
     steps:
