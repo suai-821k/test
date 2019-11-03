@@ -40,7 +40,6 @@ jobs:
     
     steps:
       - name: Send success message
-        if: success()
         uses: appleboy/telegram-action@master
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
@@ -61,7 +60,6 @@ jobs:
     
     steps:
       - name: Send fail message
-        if: failure()
         uses: appleboy/telegram-action@master
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
@@ -81,7 +79,6 @@ jobs:
     
     steps:
       - name: Send cancel message
-        if: cancelled()
         uses: appleboy/telegram-action@master
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
